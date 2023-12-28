@@ -1,0 +1,36 @@
+{
+  "name": "js-ultimate",
+  "version": "1.0.0",
+  "description": "List of JavaScript methods which you can use natively",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/esm/index.mjs",
+    "require": "./dist/cjs/index.cjs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "yarn tsc --noEmit && yarn rollup -c",
+    "link": "yarn build && yarn link"
+  },
+  "keywords": [
+    "lodash"
+  ],
+  "author": "hoatepdev",
+  "license": "MIT",
+  "dependencies": {
+    "esbuild": "^0.19.8",
+    "rollup": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/chai": "^4.3.11",
+    "chai": "^4.3.10",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-esbuild": "^6.1.0",
+    "rollup-plugin-node-externals": "^6.1.2"
+  }
+}
