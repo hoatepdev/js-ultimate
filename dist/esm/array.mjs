@@ -10,21 +10,6 @@ const group = (array, getGroupId) => {
     return acc;
   }, {});
 };
-const fish = [
-  {
-    name: "Marlin",
-    source: "ocean"
-  },
-  {
-    name: "Bass",
-    source: "lake"
-  },
-  {
-    name: "Trout",
-    source: "lake"
-  }
-];
-group(fish, (f) => f.source);
 
 export { first, group };
 //# sourceMappingURL=array.mjs.map

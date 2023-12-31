@@ -1,1 +1,1 @@
-{"version":3,"file":"index.mjs","sources":["../../src/index.ts"],"sourcesContent":["const isNil = <T>(val: T): boolean => {\n    return val === null || val === undefined\n}\n\nexport { isNil }\n\nexport { first, group } from './array'\n"],"names":[],"mappings":";;AAAM,MAAA,KAAA,GAAQ,CAAI,GAAoB,KAAA;AAClC,EAAO,OAAA,GAAA,KAAQ,QAAQ,GAAQ,KAAA,KAAA,CAAA,CAAA;AACnC;;;;"}
+{"version":3,"file":"index.mjs","sources":[],"sourcesContent":[],"names":[],"mappings":";"}

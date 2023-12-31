@@ -6,5 +6,8 @@ export {
   isString,
   isNumber,
   isDate,
+  isSymbol,
+  isEmpty,
+  isEqual,
 } from './typed'
 export { first, group } from './array'
