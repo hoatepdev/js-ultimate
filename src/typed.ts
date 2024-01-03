@@ -2,7 +2,8 @@ export const isArray = Array.isArray
 
 export const isObject = (value: unknown): boolean => {
   return (
-    value != null && (typeof value === 'object' || typeof value === 'function')
+    // value != null && (typeof value === 'object' || typeof value === 'function')
+    !!value && value.constructor === Object
   )
 }
 
