@@ -1,10 +1,7 @@
 export const isArray = Array.isArray
 
 export const isObject = (value: unknown): boolean => {
-  return (
-    // value != null && (typeof value === 'object' || typeof value === 'function')
-    !!value && value.constructor === Object
-  )
+  return !!value && value.constructor === Object
 }
 
 export const isFunction = (value: unknown): boolean => {
@@ -20,7 +17,6 @@ export const isNumber = (value: unknown): boolean => {
 }
 
 export const isDate = (value: unknown): boolean => {
-  // return Object.prototype.toString.call(value) === '[object Date]'
   return value instanceof Date
 }
 
