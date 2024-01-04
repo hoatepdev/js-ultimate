@@ -234,4 +234,21 @@ describe('typed module', () => {
       expect(_.isDate(() => {})).toBe(false)
     })
   })
+
+  describe('isPromise function', () => {
+    test('return true for Promise values', () => {
+      expect(_.isPromise(new Promise(res => res(0)))).toBe(true)
+      expect(_.isPromise(new Promise(res => res('')))).toBe(true)
+      expect(_.isPromise((async () => {})())).toBe(true)
+    })
+    test('return false for non-Date values', () => {
+      expect(_.isPromise(22)).toBe(false)
+      expect(_.isPromise({})).toBe(false)
+      expect(_.isPromise('asd')).toBe(false)
+      expect(_.isPromise([1, 2, 3])).toBe(false)
+      expect(_.isPromise(function func() {})).toBe(false)
+      expect(_.isPromise(() => {})).toBe(false)
+      expect(_.isPromise({ then: 2 })).toBe(false)
+    })
+  })
 })

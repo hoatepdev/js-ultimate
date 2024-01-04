@@ -20,6 +20,13 @@ export const isDate = (value: unknown): boolean => {
   return value instanceof Date
 }
 
+export const isPromise = (value: any): boolean => {
+  if (!value) return false
+  if (!value.then) return false
+  if (!isFunction(value.then)) return false
+  return true
+}
+
 export const isSymbol = (value: unknown): boolean => {
   return typeof value === 'symbol'
 }
