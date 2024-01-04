@@ -1,6 +1,6 @@
 {
   "name": "js-ultimate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "List of JavaScript methods which you can use natively",
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
@@ -19,7 +19,7 @@
     "lodash"
   ],
   "repository": {
-    "url": "https://github.com/rayepps/radash"
+    "url": "https://github.com/hoatepdev/js-ultimate"
   },
   "author": "hoatepdev",
   "private": false,

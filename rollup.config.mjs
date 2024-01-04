@@ -82,8 +82,8 @@ export default [
     //       },
     //       preserveModules: false,
     //       strict: useStrict,
-    //       file: 'cdn/radash.js',
-    //       name: 'radash',
+    //       file: 'cdn/js-ultimate.js',
+    //       name: 'js-ultimate',
     //       sourcemap: false
     //     },
     //     {
@@ -93,8 +93,8 @@ export default [
     //       },
     //       preserveModules: false,
     //       strict: useStrict,
-    //       file: 'cdn/radash.min.js',
-    //       name: 'radash',
+    //       file: 'cdn/js-ultimate.min.js',
+    //       name: 'js-ultimate',
     //       sourcemap: false,
     //       plugins: [minify()]
     //     },
@@ -105,7 +105,7 @@ export default [
     //       },
     //       preserveModules: false,
     //       strict: useStrict,
-    //       file: 'cdn/radash.esm.js',
+    //       file: 'cdn/js-ultimate.esm.js',
     //       sourcemap: false
     //     }
     //   ],

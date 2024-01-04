@@ -1,4 +1,4 @@
-# js-ultimate
+# js-ultimate v1.0.5
 
 <div>
   <h3 align="center">
@@ -16,7 +16,7 @@
   <a href="https://www.npmjs.com/package/js-ultimate">
     <img src="https://img.shields.io/npm/v/js-ultimate.svg" alt="npm version" height="18">
   </a>
-  <a href="https://github.com/rayepps/js-ultimate">
+  <a href="https://github.com/hoatepdev/js-ultimate">
     <img src="https://img.shields.io/npm/l/js-ultimate.svg" alt="MIT license" height="18">
   </a>
 </p>
@@ -39,20 +39,22 @@ console.log(isNumber("123"))     // false;
 
 ## List utils
 
-<ol>
-  <li>Typed
-    <ul>
-      <li>isArray</li>
-      <li>isObject</li>
-      <li>isFunction</li>
-      <li>isString</li>
-      <li>isNumber</li>
-      <li>isDate</li>
-      <li>isPromise</li>
-      <li>isSymbol</li>
-      <li>isNil</li>
-      <li>isEmpty</li>
-      <li>isEqual</li>
-    </ul>
-  </li>
-</ol>
+<b>
+  <ol>
+    <li>Typed
+      <ul>
+        <li>isArray</li>
+        <li>isObject</li>
+        <li>isFunction</li>
+        <li>isString</li>
+        <li>isNumber</li>
+        <li>isDate</li>
+        <li>isPromise</li>
+        <li>isSymbol</li>
+        <li>isNil</li>
+        <li>isEmpty</li>
+        <li>isEqual</li>
+      </ul>
+    </li>
+  </ol>
+</b>
