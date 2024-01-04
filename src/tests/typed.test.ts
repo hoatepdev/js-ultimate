@@ -141,4 +141,41 @@ describe('typed module', () => {
       expect(_.isString(String('123'))).toBe(true)
     })
   })
+
+  describe('isNumber function', () => {
+    test('returns false for null', () => {
+      expect(_.isNumber(null)).toBe(false)
+    })
+    test('returns false for undefined', () => {
+      expect(_.isNumber(undefined)).toBe(false)
+    })
+    test('returns false for boolean', () => {
+      expect(_.isNumber(false)).toBe(false)
+    })
+    test('returns false for class instance', () => {
+      class Data {}
+      expect(_.isNumber(new Data())).toBe(false)
+    })
+    test('returns true for int', () => {
+      expect(_.isNumber(22)).toBe(true)
+    })
+    test('returns true for float', () => {
+      expect(_.isNumber(22.0567)).toBe(true)
+    })
+    test('returns false for NaN', () => {
+      expect(_.isNumber(NaN)).toBe(false)
+    })
+    test('returns false for array', () => {
+      expect(_.isNumber([1, 2, 3])).toBe(false)
+    })
+    test('returns false for object', () => {
+      expect(_.isNumber({})).toBe(false)
+    })
+    test('returns false for string', () => {
+      expect(_.isNumber('abc')).toBe(false)
+    })
+    test('returns false for string class', () => {
+      expect(_.isNumber(String('123'))).toBe(false)
+    })
+  })
 })

@@ -13,7 +13,7 @@ export const isString = (value: unknown): boolean => {
 }
 
 export const isNumber = (value: unknown): boolean => {
-  return typeof value === 'number'
+  return Number(value) === value
 }
 
 export const isDate = (value: unknown): boolean => {
