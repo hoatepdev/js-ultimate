@@ -33,7 +33,7 @@ export const isEmpty = (value: any) => {
   if (value === null || value === undefined) return true
   if (isNumber(value)) return value === 0
   if (isDate(value)) return isNaN(value.getTime())
-  if (isFunction(value)) return true
+  if (isFunction(value)) return false
   if (isNumber(value.length)) return value.length === 0
   if (isNumber(value.size)) return value.size === 0
   return Object.keys(value).length === 0

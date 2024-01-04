@@ -178,4 +178,43 @@ describe('typed module', () => {
       expect(_.isNumber(String('123'))).toBe(false)
     })
   })
+
+  describe('isEmpty function', () => {
+    class DataEmpty {}
+    class Data {
+      name: string = 'hoatep'
+    }
+
+    const map = new Map()
+    map.set('a', 1)
+
+    test('returns true for empty values', () => {
+      expect(_.isEmpty(null)).toBe(true)
+      expect(_.isEmpty(undefined)).toBe(true)
+      expect(_.isEmpty(new DataEmpty())).toBe(true)
+      expect(_.isEmpty(0)).toBe(true)
+      expect(_.isEmpty(true)).toBe(true)
+      expect(_.isEmpty([])).toBe(true)
+      expect(_.isEmpty(false)).toBe(true)
+      expect(_.isEmpty({})).toBe(true)
+      expect(_.isEmpty('')).toBe(true)
+      expect(_.isEmpty(String())).toBe(true)
+      expect(_.isEmpty(new Map())).toBe(true)
+      expect(_.isEmpty(new Date('invalid value'))).toBe(true)
+    })
+
+    test('returns false for non-empty values', () => {
+      expect(_.isEmpty(new Date())).toBe(false)
+      expect(_.isEmpty(new Date('2022-09-01T02:19:55.976Z'))).toBe(false)
+      expect(_.isEmpty(22)).toBe(false)
+      expect(_.isEmpty(new Data())).toBe(false)
+      expect(_.isEmpty({ b: 2 })).toBe(false)
+      expect(_.isEmpty('abc')).toBe(false)
+      expect(_.isEmpty(String('abc'))).toBe(false)
+      expect(_.isEmpty([1, 2, 3])).toBe(false)
+      expect(_.isEmpty(function func() {})).toBe(false)
+      expect(_.isEmpty(() => {})).toBe(false)
+      expect(_.isEmpty(map)).toBe(false)
+    })
+  })
 })
