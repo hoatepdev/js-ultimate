@@ -110,4 +110,35 @@ describe('typed module', () => {
       expect(_.isFunction(sayHello)).toBe(true)
     })
   })
+
+  describe('isString function', () => {
+    test('returns false for null', () => {
+      expect(_.isString(null)).toBe(false)
+    })
+    test('returns false for undefined', () => {
+      expect(_.isString(undefined)).toBe(false)
+    })
+    test('returns false for boolean', () => {
+      expect(_.isString(false)).toBe(false)
+    })
+    test('returns false for class instance', () => {
+      class Data {}
+      expect(_.isString(new Data())).toBe(false)
+    })
+    test('returns false for number', () => {
+      expect(_.isString(22)).toBe(false)
+    })
+    test('returns false for array', () => {
+      expect(_.isString(['1', '2'])).toBe(false)
+    })
+    test('returns false for object', () => {
+      expect(_.isString({})).toBe(false)
+    })
+    test('returns true for string', () => {
+      expect(_.isString('abc')).toBe(true)
+    })
+    test('returns true for string class', () => {
+      expect(_.isString(String('123'))).toBe(true)
+    })
+  })
 })
