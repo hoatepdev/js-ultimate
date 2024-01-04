@@ -217,4 +217,21 @@ describe('typed module', () => {
       expect(_.isEmpty(map)).toBe(false)
     })
   })
+
+  describe('isDate function', () => {
+    test('return true for Date values', () => {
+      expect(_.isDate(new Date())).toBe(true)
+      expect(_.isDate(new Date('2022-09-01T02:19:55.976Z'))).toBe(true)
+      expect(_.isDate(new Date('invalid value'))).toBe(true)
+    })
+    test('return false for non-Date values', () => {
+      expect(_.isDate(22)).toBe(false)
+      expect(_.isDate({ a: 1 })).toBe(false)
+      expect(_.isDate('abc')).toBe(false)
+      expect(_.isDate(String('bla'))).toBe(false)
+      expect(_.isDate([1, 2, 3])).toBe(false)
+      expect(_.isDate(function func() {})).toBe(false)
+      expect(_.isDate(() => {})).toBe(false)
+    })
+  })
 })
