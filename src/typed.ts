@@ -54,6 +54,10 @@ const deepEqual = (object1: any, object2: any) => {
     return false
   }
 
+  // if (keys1.length === keys2.length && keys1.length === 0) {
+  //   return true
+  // }
+
   for (const key of keys1) {
     const val1 = object1[key]
     const val2 = object2[key]
@@ -78,7 +82,7 @@ export const isEqual = <T>(x: T, y: T) => {
     x !== null &&
     y !== null
   ) {
-    deepEqual(x, y)
+    return deepEqual(x, y)
   }
   return false
 }

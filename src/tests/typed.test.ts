@@ -251,4 +251,62 @@ describe('typed module', () => {
       expect(_.isPromise({ then: 2 })).toBe(false)
     })
   })
+
+  describe('isEqual function', () => {
+    class Person {
+      name: string
+      friends: Person[] = []
+      self?: Person
+      constructor(name: string) {
+        this.name = name
+      }
+    }
+    const jake = new Person('jake')
+    jake.self = jake
+    jake.friends = [jake, jake]
+    const symbolKey = Symbol('symkey')
+    const complex = {
+      num: 0,
+      str: '',
+      boolean: true,
+      unf: void 0,
+      nul: null,
+      obj: { name: 'object', id: 1, chilren: [0, 1, 2] },
+      arr: [0, 1, 2],
+      func() {},
+      loop: null as any,
+      person: jake,
+      date: new Date(0),
+      reg: new RegExp('/regexp/ig'),
+      [symbolKey]: 'symbol'
+    }
+    complex.loop = { ...complex }
+    const now = new Date()
+
+    test('returns true for equal things', () => {
+      expect(_.isEqual(0, 0)).toBe(true)
+      expect(_.isEqual('a', 'a')).toBe(true)
+      expect(_.isEqual({}, {})).toBe(true)
+      expect(_.isEqual(true, true)).toBe(true)
+      expect(_.isEqual(now, now)).toBe(true)
+      expect(_.isEqual([], [])).toBe(true)
+      expect(_.isEqual(complex, { ...complex })).toBe(true)
+      expect(
+        _.isEqual([complex, complex], [{ ...complex }, { ...complex }])
+      ).toBe(true)
+    })
+    test('returns false for non-equal things', () => {
+      expect(_.isEqual(0, 1)).toBe(false)
+      expect(_.isEqual('a', 'b')).toBe(false)
+      expect(_.isEqual(Symbol('hello'), Symbol('goodbye'))).toBe(false)
+      expect(_.isEqual({ a: 20 }, { a: 21 })).toBe(false)
+      expect(_.isEqual(true, false)).toBe(false)
+      expect(_.isEqual(new Date(), new Date('2022-09-01T03:25:12.750Z'))).toBe(
+        false
+      )
+      expect(_.isEqual([], [1])).toBe(false)
+      expect(_.isEqual(complex, { ...complex, num: 222 })).toBe(false)
+      expect(_.isEqual([complex], [{ ...complex, num: 222 }])).toBe(false)
+    })
+  })
 })
