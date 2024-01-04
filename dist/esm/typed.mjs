@@ -1,6 +1,6 @@
 const isArray = Array.isArray;
 const isObject = (value) => {
-  return value != null && (typeof value === "object" || typeof value === "function");
+  return !!value && value.constructor === Object;
 };
 const isFunction = (value) => {
   return typeof value === "function";
@@ -9,7 +9,7 @@ const isString = (value) => {
   return typeof value === "string";
 };
 const isNumber = (value) => {
-  return typeof value === "number";
+  return Number(value) === value;
 };
 const isDate = (value) => {
   return value instanceof Date;
@@ -30,7 +30,7 @@ const isEmpty = (value) => {
   if (isDate(value))
     return isNaN(value.getTime());
   if (isFunction(value))
-    return true;
+    return false;
   if (isNumber(value.length))
     return value.length === 0;
   if (isNumber(value.size))
@@ -59,7 +59,7 @@ const isEqual = (x, y) => {
   if (x instanceof Date && y instanceof Date)
     return x.getDate() === y.getDate();
   if (typeof x === "object" && typeof y === "object" && x !== null && y !== null) {
-    deepEqual(x, y);
+    return deepEqual(x, y);
   }
   return false;
 };
