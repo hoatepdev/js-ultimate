@@ -1,10 +1,12 @@
 'use strict';
 
+const string = require('./string.cjs');
 const typed = require('./typed.cjs');
 const array = require('./array.cjs');
 
 
 
+exports.capitalize = string.capitalize;
 exports.isArray = typed.isArray;
 exports.isDate = typed.isDate;
 exports.isEmpty = typed.isEmpty;

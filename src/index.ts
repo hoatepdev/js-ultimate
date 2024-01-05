@@ -1,3 +1,5 @@
+export { capitalize } from './string'
+
 export {
   isNil,
   isArray,
@@ -8,6 +10,6 @@ export {
   isDate,
   isSymbol,
   isEmpty,
-  isEqual,
+  isEqual
 } from './typed'
 export { first, group } from './array'
