@@ -21,6 +21,12 @@
   </a>
 </p>
 
+<div align="center">
+  <p align="center">
+    <img src="https://github.com/hoatepdev/js-ultimate/raw/main/banner.png" alt="js-ultimate" width="100%" style="border-radius:4px" />
+  </p>
+</div>
+
 ## Install
 
 ```
