@@ -1,4 +1,4 @@
-export { capitalize } from './string'
+export { capitalize, trim } from './string'
 
 export {
   isNil,
