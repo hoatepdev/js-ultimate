@@ -2,6 +2,27 @@
 
 🚀 Lightweight, powerful utility functions to replace lodash with **zero dependencies** and **strong TypeScript support**.
 
+<p align="center">
+  <a href="https://bundlephobia.com/package/js-ultimate">
+    <img src="https://img.shields.io/bundlephobia/minzip/js-ultimate?label=minzipped" alt="bundle size" height="18">
+  </a>
+  <a href="https://www.npmjs.com/package/js-ultimate">
+    <img src="https://img.shields.io/npm/dm/js-ultimate.svg" alt="npm downloads" height="18">
+  </a>
+  <a href="https://www.npmjs.com/package/js-ultimate">
+    <img src="https://img.shields.io/npm/v/js-ultimate.svg" alt="npm version" height="18">
+  </a>
+  <a href="https://github.com/hoatepdev/js-ultimate">
+    <img src="https://img.shields.io/npm/l/js-ultimate.svg" alt="MIT license" height="18">
+  </a>
+</p>
+
+<div align="center">
+  <p align="center">
+    <img src="https://github.com/hoatepdev/js-ultimate/raw/main/banner.png" alt="js-ultimate" width="100%" style="border-radius:4px" />
+  </p>
+</div>
+
 ## Installation
 
 ```bash
@@ -20,17 +41,31 @@ yarn add js-ultimate
 ## Usage
 
 ```typescript
-import { 
+import {
   // Array utilities
-  uniq, flatten, chunk, shuffle,
+  uniq,
+  flatten,
+  chunk,
+  shuffle,
   // Object utilities
-  merge, pick, omit, cloneDeep,
+  merge,
+  pick,
+  omit,
+  cloneDeep,
   // Function utilities
-  debounce, throttle, once, memoize,
+  debounce,
+  throttle,
+  once,
+  memoize,
   // String utilities
-  camelCase, kebabCase, capitalize,
+  camelCase,
+  kebabCase,
+  capitalize,
   // General utilities
-  clamp, randomInt, sleep, get
+  clamp,
+  randomInt,
+  sleep,
+  get
 } from 'js-ultimate'
 
 // Array operations
