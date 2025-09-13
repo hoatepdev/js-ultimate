@@ -1,37 +1,30 @@
 export const isArray = Array.isArray
 
-export const isObject = (value: unknown): boolean => {
+export const isObject = (value: unknown): value is Record<string, any> => {
   return !!value && value.constructor === Object
 }
 
-export const isFunction = (value: unknown): boolean => {
+export const isFunction = (value: unknown): value is Function => {
   return typeof value === 'function'
 }
 
-export const isString = (value: unknown): boolean => {
+export const isString = (value: unknown): value is string => {
   return typeof value === 'string'
 }
 
-export const isNumber = (value: unknown): boolean => {
-  return Number(value) === value
+export const isNumber = (value: unknown): value is number => {
+  return typeof value === 'number' && !isNaN(value)
 }
 
-export const isDate = (value: unknown): boolean => {
+export const isDate = (value: unknown): value is Date => {
   return value instanceof Date
 }
 
-export const isPromise = (value: any): boolean => {
-  if (!value) return false
-  if (!value.then) return false
-  if (!isFunction(value.then)) return false
-  return true
-}
-
-export const isSymbol = (value: unknown): boolean => {
+export const isSymbol = (value: unknown): value is symbol => {
   return typeof value === 'symbol'
 }
 
-export const isNil = (value: unknown): boolean => {
+export const isNil = (value: unknown): value is null | undefined => {
   return value === null || value === undefined
 }
 
@@ -54,10 +47,6 @@ const deepEqual = (object1: any, object2: any) => {
     return false
   }
 
-  // if (keys1.length === keys2.length && keys1.length === 0) {
-  //   return true
-  // }
-
   for (const key of keys1) {
     const val1 = object1[key]
     const val2 = object2[key]
@@ -73,9 +62,9 @@ const deepEqual = (object1: any, object2: any) => {
   return true
 }
 
-export const isEqual = <T>(x: T, y: T) => {
+export const isEqual = <T>(x: T, y: T): boolean => {
   if (Object.is(x, y)) return true
-  if (x instanceof Date && y instanceof Date) return x.getDate() === y.getDate()
+  if (x instanceof Date && y instanceof Date) return x.getTime() === y.getTime()
   if (
     typeof x === 'object' &&
     typeof y === 'object' &&
