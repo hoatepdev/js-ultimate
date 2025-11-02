@@ -1,4 +1,4 @@
-import { isString } from './typed'
+import { isString } from './typed.js'
 
 export const capitalize = (value: string): string => {
   if (!isString(value)) return ''

@@ -108,12 +108,13 @@ jobs:
         run: |
           echo "Testing prototype pollution prevention..."
           node -e "
-            const { merge } = require('./dist/object.js');
-            const malicious = JSON.parse('{\"__proto__\": {\"polluted\": \"yes\"}}');
-            merge({}, malicious);
-            if (({}).polluted) {
-              console.error('❌ SECURITY FAILURE: Prototype pollution detected!');
-              process.exit(1);
-            }
-            console.log('✅ Prototype pollution prevented');
+            import('./dist/object.js').then(({ merge }) => {
+              const malicious = JSON.parse('{\"__proto__\": {\"polluted\": \"yes\"}}');
+              merge({}, malicious);
+              if (({}).polluted) {
+                console.error('❌ SECURITY FAILURE: Prototype pollution detected!');
+                process.exit(1);
+              }
+              console.log('✅ Prototype pollution prevented');
+            });
           "

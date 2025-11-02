@@ -8,16 +8,16 @@ export {
   range,
   compact,
   shuffle
-} from './array'
+} from './array.js'
 
 // Object utilities
-export { merge, pick, omit, cloneDeep, invert } from './object'
+export { merge, pick, omit, cloneDeep, invert } from './object.js'
 
 // Function utilities
-export { debounce, throttle, once, memoize } from './function'
+export { debounce, throttle, once, memoize } from './function.js'
 
 // String utilities
-export { capitalize, trim, camelCase, kebabCase } from './string'
+export { capitalize, trim, camelCase, kebabCase } from './string.js'
 
 // Type checking utilities
 export {
@@ -31,7 +31,7 @@ export {
   isSymbol,
   isEmpty,
   isEqual
-} from './typed'
+} from './typed.js'
 
 // General utilities
-export { randomInt, clamp, sleep, deepFreeze, get } from './utils'
+export { randomInt, clamp, sleep, deepFreeze, get } from './utils.js'

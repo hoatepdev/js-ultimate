@@ -1,4 +1,4 @@
-import { isObject } from './typed'
+import { isObject } from './typed.js'
 
 // List of dangerous keys that could lead to prototype pollution
 const DANGEROUS_KEYS = ['__proto__', 'constructor', 'prototype']
