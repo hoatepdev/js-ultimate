@@ -1,0 +1,78 @@
+name: Security Vulnerability
+description: Report a security vulnerability (PRIVATE - use email for critical issues)
+title: "[Security]: "
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ Security Disclosure Policy
+
+        **For critical vulnerabilities, please DO NOT create a public issue.**
+
+        Instead, email: **hoatepdev@gmail.com** with:
+        - Subject: "SECURITY: js-ultimate vulnerability"
+        - Detailed description of the vulnerability
+        - Steps to reproduce
+        - Potential impact
+
+        For non-critical security concerns, you may use this form.
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Level
+      description: How severe is this vulnerability?
+      options:
+        - Low (Minor issue, limited impact)
+        - Medium (Moderate impact, workaround available)
+        - High (Significant impact, no easy workaround)
+        - Critical (Use email instead of this form!)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Vulnerability Description
+      description: Describe the security vulnerability
+      placeholder: Clear description of the security issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Potential Impact
+      description: What could an attacker do with this vulnerability?
+      placeholder: Describe the potential impact
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this vulnerability?
+      placeholder: |
+        1. Import function '...'
+        2. Call with malicious input '...'
+        3. Observe security issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested Fix
+      description: Do you have a suggestion for how to fix this?
+      placeholder: Optional - any ideas for fixing this issue
+
+  - type: input
+    id: version
+    attributes:
+      label: Affected Version(s)
+      description: Which versions are affected?
+      placeholder: e.g., 2.0.1, all versions
+    validations:
+      required: true
