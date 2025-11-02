@@ -1,5 +1,8 @@
 import { isObject } from './typed'
 
+// List of dangerous keys that could lead to prototype pollution
+const DANGEROUS_KEYS = ['__proto__', 'constructor', 'prototype']
+
 /**
  * Merges multiple objects deeply
  * @param target - The target object to merge into
@@ -18,6 +21,12 @@ export const merge = <T extends Record<string, any>>(
 
   if (isObject(target) && isObject(source)) {
     for (const key in source) {
+      // Security: Prevent prototype pollution
+      if (DANGEROUS_KEYS.includes(key)) continue
+
+      // Only process own properties
+      if (!Object.prototype.hasOwnProperty.call(source, key)) continue
+
       if (isObject(source[key])) {
         if (!target[key]) Object.assign(target, { [key]: {} })
         merge(target[key], source[key])
@@ -89,7 +98,7 @@ export const cloneDeep = <T>(obj: T): T => {
   if (typeof obj === 'object') {
     const clonedObj = {} as T
     for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
         clonedObj[key] = cloneDeep(obj[key])
       }
     }
@@ -110,7 +119,7 @@ export const invert = <T extends Record<string, string | number>>(
 ): Record<string, string> => {
   const result: Record<string, string> = {}
   for (const key in obj) {
-    if (obj.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
       result[String(obj[key])] = key
     }
   }

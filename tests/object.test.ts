@@ -6,15 +6,56 @@ describe('object module', () => {
       const result = _.merge({ a: 1 } as any, { b: 2 }, { c: 3 })
       expect(result).toEqual({ a: 1, b: 2, c: 3 })
     })
-    
+
     test('merges nested objects', () => {
       const result = _.merge({ a: { x: 1 } } as any, { a: { y: 2 } })
       expect(result).toEqual({ a: { x: 1, y: 2 } })
     })
-    
+
     test('overwrites primitive values', () => {
       const result = _.merge({ a: 1 }, { a: 2 })
       expect(result).toEqual({ a: 2 })
+    })
+
+    test('prevents prototype pollution via __proto__', () => {
+      const target = {}
+      const malicious = JSON.parse('{"__proto__": {"polluted": "yes"}}')
+      _.merge(target, malicious)
+
+      // Should NOT pollute Object.prototype
+      expect((Object.prototype as any).polluted).toBeUndefined()
+      expect((target as any).polluted).toBeUndefined()
+    })
+
+    test('prevents prototype pollution via constructor', () => {
+      const target = {}
+      const malicious = { constructor: { prototype: { polluted: 'yes' } } }
+      _.merge(target, malicious)
+
+      // Should NOT pollute Object.prototype
+      expect((Object.prototype as any).polluted).toBeUndefined()
+    })
+
+    test('prevents prototype pollution via prototype', () => {
+      const target = {}
+      const malicious = { prototype: { polluted: 'yes' } }
+      _.merge(target, malicious)
+
+      // Should NOT add dangerous keys
+      expect((target as any).prototype).toBeUndefined()
+    })
+
+    test('only merges own properties', () => {
+      const parent = { inherited: 'value' }
+      const child = Object.create(parent)
+      child.own = 'own value'
+
+      const target = {}
+      _.merge(target, child)
+
+      // Should only merge own properties
+      expect((target as any).own).toBe('own value')
+      expect((target as any).inherited).toBeUndefined()
     })
   })
 
