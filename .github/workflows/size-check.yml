@@ -46,6 +46,7 @@ jobs:
       - name: Build base branch
         working-directory: base
         run: |
+          corepack enable
           yarn install --frozen-lockfile
           yarn build
 

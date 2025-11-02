@@ -1,4 +1,3 @@
-
 /**
  * Generates a random integer between min and max (inclusive)
  * @param min - The minimum value
@@ -47,15 +46,15 @@ export const sleep = (ms: number): Promise<void> => {
  */
 export const deepFreeze = <T>(obj: T): T => {
   if (obj === null || typeof obj !== 'object') return obj
-  
+
   Object.freeze(obj)
-  
+
   Object.getOwnPropertyNames(obj).forEach(prop => {
     if ((obj as any)[prop] !== null && typeof (obj as any)[prop] === 'object') {
       deepFreeze((obj as any)[prop])
     }
   })
-  
+
   return obj
 }
 
@@ -71,16 +70,16 @@ export const deepFreeze = <T>(obj: T): T => {
  */
 export const get = <T = any>(obj: any, path: string, defaultValue?: T): T => {
   if (!obj || typeof obj !== 'object') return defaultValue as T
-  
+
   const keys = path.split('.')
   let result = obj
-  
+
   for (const key of keys) {
     if (result === null || result === undefined || !(key in result)) {
       return defaultValue as T
     }
     result = result[key]
   }
-  
+
   return result as T
 }

@@ -79,12 +79,16 @@ export const chunk = <T>(array: readonly T[], size: number): T[][] => {
  * range(1, 5, 2) // [1, 3]
  * range(0, -4, -1) // [0, -1, -2, -3]
  */
-export const range = (start: number, end?: number, step: number = 1): number[] => {
+export const range = (
+  start: number,
+  end?: number,
+  step: number = 1
+): number[] => {
   if (end === undefined) {
     end = start
     start = 0
   }
-  
+
   const result: number[] = []
   if (step > 0) {
     for (let i = start; i < end; i += step) {
@@ -105,7 +109,9 @@ export const range = (start: number, end?: number, step: number = 1): number[] =
  * @example
  * compact([0, 1, false, 2, '', 3]) // [1, 2, 3]
  */
-export const compact = <T>(array: readonly (T | null | undefined | false | 0 | '')[]): T[] => {
+export const compact = <T>(
+  array: readonly (T | null | undefined | false | 0 | '')[]
+): T[] => {
   return array.filter(Boolean) as T[]
 }
 
@@ -119,8 +125,8 @@ export const compact = <T>(array: readonly (T | null | undefined | false | 0 | '
 export const shuffle = <T>(array: readonly T[]): T[] => {
   const result = [...array]
   for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]]
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[result[i], result[j]] = [result[j], result[i]]
   }
   return result
 }

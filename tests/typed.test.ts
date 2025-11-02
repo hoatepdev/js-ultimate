@@ -235,7 +235,6 @@ describe('typed module', () => {
     })
   })
 
-
   describe('isEqual function', () => {
     class Person {
       name: string

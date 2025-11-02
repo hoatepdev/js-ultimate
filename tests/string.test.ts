@@ -44,7 +44,7 @@ describe('string module', () => {
       expect(_.camelCase(undefined as any)).toBe('')
       expect(_.camelCase(123 as any)).toBe('')
     })
-    
+
     test('converts strings to camel case', () => {
       expect(_.camelCase('Foo Bar')).toBe('fooBar')
       expect(_.camelCase('--foo-bar--')).toBe('fooBar')
@@ -52,7 +52,7 @@ describe('string module', () => {
       expect(_.camelCase('foo bar baz')).toBe('fooBarBaz')
       expect(_.camelCase('hello world')).toBe('helloWorld')
     })
-    
+
     test('handles already camelCase strings', () => {
       expect(_.camelCase('fooBar')).toBe('fooBar')
       expect(_.camelCase('alreadyCamelCase')).toBe('alreadyCamelCase')
@@ -65,7 +65,7 @@ describe('string module', () => {
       expect(_.kebabCase(undefined as any)).toBe('')
       expect(_.kebabCase(123 as any)).toBe('')
     })
-    
+
     test('converts strings to kebab case', () => {
       expect(_.kebabCase('Foo Bar')).toBe('foo-bar')
       expect(_.kebabCase('fooBar')).toBe('foo-bar')
@@ -73,12 +73,12 @@ describe('string module', () => {
       expect(_.kebabCase('HelloWorld')).toBe('hello-world')
       expect(_.kebabCase('HELLO_WORLD')).toBe('hello-world')
     })
-    
+
     test('handles already kebab-case strings', () => {
       expect(_.kebabCase('foo-bar')).toBe('foo-bar')
       expect(_.kebabCase('already-kebab-case')).toBe('already-kebab-case')
     })
-    
+
     test('handles edge cases', () => {
       expect(_.kebabCase('')).toBe('')
       expect(_.kebabCase('a')).toBe('a')
