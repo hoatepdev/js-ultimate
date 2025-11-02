@@ -104,13 +104,16 @@ jobs:
         run: yarn audit --groups dependencies
         continue-on-error: true
 
-      - name: Check for prototype pollution
+      - name: Check for prototype pollution in set function
         run: |
           echo "Testing prototype pollution prevention..."
           node -e "
-            import('./dist/object.js').then(({ merge }) => {
-              const malicious = JSON.parse('{\"__proto__\": {\"polluted\": \"yes\"}}');
-              merge({}, malicious);
+            import('./dist/object/set.js').then(({ set }) => {
+              const obj = {};
+              try {
+                set(obj, '__proto__.polluted', 'yes');
+                set(obj, 'constructor.prototype.polluted', 'yes');
+              } catch(e) {}
               if (({}).polluted) {
                 console.error('❌ SECURITY FAILURE: Prototype pollution detected!');
                 process.exit(1);

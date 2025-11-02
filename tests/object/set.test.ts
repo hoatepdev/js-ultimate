@@ -31,4 +31,16 @@ describe('set', () => {
     set(obj, 'a.b', 1)
     expect(obj).toEqual({ a: { b: 1 } })
   })
+
+  it('should prevent prototype pollution via __proto__', () => {
+    const obj = {}
+    set(obj, '__proto__.polluted', 'yes')
+    expect(({} as any).polluted).toBeUndefined()
+  })
+
+  it('should prevent prototype pollution via constructor', () => {
+    const obj = {}
+    set(obj, 'constructor.prototype.polluted', 'yes')
+    expect(({} as any).polluted).toBeUndefined()
+  })
 })

@@ -29,6 +29,15 @@ export function set<T extends object>(
   value: any
 ): T {
   const keys = Array.isArray(path) ? path : path.split('.')
+
+  // Prevent prototype pollution
+  const dangerousKeys = ['__proto__', 'constructor', 'prototype']
+  for (const key of keys) {
+    if (dangerousKeys.includes(key)) {
+      return obj
+    }
+  }
+
   let current: any = obj
 
   for (let i = 0; i < keys.length - 1; i++) {
