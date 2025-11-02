@@ -1,37 +1,26 @@
-// Array utilities
-export {
-  first,
-  group,
-  uniq,
-  flatten,
-  chunk,
-  range,
-  compact,
-  shuffle
-} from './array.js'
+// Array
+export { chunk } from './array/chunk.js';
+export { first } from './array/first.js';
+export { last } from './array/last.js';
+export { uniq } from './array/uniq.js';
 
-// Object utilities
-export { merge, pick, omit, cloneDeep, invert } from './object.js'
+// Collection
+export { map } from './collection/map.js';
+export { filter } from './collection/filter.js';
+export { find } from './collection/find.js';
+export { reduce } from './collection/reduce.js';
 
-// Function utilities
-export { debounce, throttle, once, memoize } from './function.js'
+// Object
+export { get } from './object/get.js';
+export { set } from './object/set.js';
+export { omit } from './object/omit.js';
+export { pick } from './object/pick.js';
 
-// String utilities
-export { capitalize, trim, camelCase, kebabCase } from './string.js'
+// String
+export { camelCase } from './string/camelCase.js';
 
-// Type checking utilities
-export {
-  isNil,
-  isArray,
-  isObject,
-  isFunction,
-  isString,
-  isNumber,
-  isDate,
-  isSymbol,
-  isEmpty,
-  isEqual
-} from './typed.js'
+// Function
+export { debounce } from './function/debounce.js';
 
-// General utilities
-export { randomInt, clamp, sleep, deepFreeze, get } from './utils.js'
+// Lang
+export { isEqual } from './lang/isEqual.js';
