@@ -24,37 +24,38 @@
  */
 export function isEqual(value: any, other: any): boolean {
   // Handle primitive types and same reference
-  if (value === other) return true;
+  if (value === other) return true
 
   // Handle null/undefined
-  if (value == null || other == null) return false;
+  if (value == null || other == null) return false
 
   // Handle different types
-  if (typeof value !== typeof other) return false;
+  if (typeof value !== typeof other) return false
 
   // Handle dates
   if (value instanceof Date && other instanceof Date) {
-    return value.getTime() === other.getTime();
+    return value.getTime() === other.getTime()
   }
 
   // Handle arrays
   if (Array.isArray(value) && Array.isArray(other)) {
-    if (value.length !== other.length) return false;
-    return value.every((item, index) => isEqual(item, other[index]));
+    if (value.length !== other.length) return false
+    return value.every((item, index) => isEqual(item, other[index]))
   }
 
   // Handle objects
   if (typeof value === 'object' && typeof other === 'object') {
-    const keysA = Object.keys(value);
-    const keysB = Object.keys(other);
+    const keysA = Object.keys(value)
+    const keysB = Object.keys(other)
 
-    if (keysA.length !== keysB.length) return false;
+    if (keysA.length !== keysB.length) return false
 
-    return keysA.every(key =>
-      Object.prototype.hasOwnProperty.call(other, key) &&
-      isEqual(value[key], other[key])
-    );
+    return keysA.every(
+      key =>
+        Object.prototype.hasOwnProperty.call(other, key) &&
+        isEqual(value[key], other[key])
+    )
   }
 
-  return false;
+  return false
 }

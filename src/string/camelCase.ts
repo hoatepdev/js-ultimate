@@ -29,15 +29,15 @@ export function camelCase(str: string): string {
     .trim()
     .toLowerCase()
     .split(/\s+/)
-    .filter(word => word.length > 0);
+    .filter(word => word.length > 0)
 
-  if (words.length === 0) return '';
+  if (words.length === 0) return ''
 
   // First word is lowercase, rest are capitalized
   return words
     .map((word, index) => {
-      if (index === 0) return word;
-      return word.charAt(0).toUpperCase() + word.slice(1);
+      if (index === 0) return word
+      return word.charAt(0).toUpperCase() + word.slice(1)
     })
-    .join('');
+    .join('')
 }

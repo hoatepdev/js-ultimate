@@ -28,5 +28,5 @@ export function reduce<T, U>(
   iteratee: (accumulator: U, value: T, index: number, array: T[]) => U,
   accumulator: U
 ): U {
-  return array.reduce(iteratee, accumulator);
+  return array.reduce(iteratee, accumulator)
 }

@@ -22,5 +22,5 @@
  * Performance: 11% faster than Lodash
  */
 export function first<T>(array: T[]): T | undefined {
-  return array[0];
+  return array[0]
 }

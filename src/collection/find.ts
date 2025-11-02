@@ -26,5 +26,5 @@ export function find<T>(
   array: T[],
   predicate: (value: T, index: number, array: T[]) => boolean
 ): T | undefined {
-  return array.find(predicate);
+  return array.find(predicate)
 }

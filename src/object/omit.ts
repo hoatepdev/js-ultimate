@@ -26,14 +26,17 @@ export function omit<T extends object, K extends keyof T>(
   obj: T,
   keys: K[]
 ): Omit<T, K> {
-  const keysSet = new Set(keys);
-  const result: any = {};
+  const keysSet = new Set(keys)
+  const result: any = {}
 
   for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key) && !keysSet.has(key as any)) {
-      result[key] = obj[key];
+    if (
+      Object.prototype.hasOwnProperty.call(obj, key) &&
+      !keysSet.has(key as any)
+    ) {
+      result[key] = obj[key]
     }
   }
 
-  return result;
+  return result
 }

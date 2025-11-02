@@ -28,17 +28,17 @@ export function set<T extends object>(
   path: string | string[],
   value: any
 ): T {
-  const keys = Array.isArray(path) ? path : path.split('.');
-  let current: any = obj;
+  const keys = Array.isArray(path) ? path : path.split('.')
+  let current: any = obj
 
   for (let i = 0; i < keys.length - 1; i++) {
-    const key = keys[i];
+    const key = keys[i]
     if (!(key in current) || typeof current[key] !== 'object') {
-      current[key] = {};
+      current[key] = {}
     }
-    current = current[key];
+    current = current[key]
   }
 
-  current[keys[keys.length - 1]] = value;
-  return obj;
+  current[keys[keys.length - 1]] = value
+  return obj
 }

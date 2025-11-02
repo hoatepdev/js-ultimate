@@ -28,15 +28,15 @@ export function get<T = any>(
   path: string | string[],
   defaultValue?: T
 ): T {
-  const keys = Array.isArray(path) ? path : path.split('.');
-  let result: any = obj;
+  const keys = Array.isArray(path) ? path : path.split('.')
+  let result: any = obj
 
   for (const key of keys) {
     if (result == null) {
-      return defaultValue as T;
+      return defaultValue as T
     }
-    result = result[key];
+    result = result[key]
   }
 
-  return result === undefined ? (defaultValue as T) : result;
+  return result === undefined ? (defaultValue as T) : result
 }

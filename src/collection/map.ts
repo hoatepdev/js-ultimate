@@ -26,5 +26,5 @@ export function map<T, U>(
   array: T[],
   iteratee: (value: T, index: number, array: T[]) => U
 ): U[] {
-  return array.map(iteratee);
+  return array.map(iteratee)
 }

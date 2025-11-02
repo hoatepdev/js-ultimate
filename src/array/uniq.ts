@@ -22,5 +22,5 @@
  * Performance: 108% faster than Lodash
  */
 export function uniq<T>(array: T[]): T[] {
-  return Array.from(new Set(array));
+  return Array.from(new Set(array))
 }

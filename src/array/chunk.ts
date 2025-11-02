@@ -23,15 +23,15 @@
  * Performance: 87% faster than Lodash
  */
 export function chunk<T>(array: T[], size = 1): T[][] {
-  if (size < 1 || !array.length) return [];
+  if (size < 1 || !array.length) return []
 
-  const result: T[][] = [];
-  let index = 0;
+  const result: T[][] = []
+  let index = 0
 
   while (index < array.length) {
-    result.push(array.slice(index, index + size));
-    index += size;
+    result.push(array.slice(index, index + size))
+    index += size
   }
 
-  return result;
+  return result
 }
