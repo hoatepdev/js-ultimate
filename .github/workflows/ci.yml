@@ -68,6 +68,7 @@ jobs:
       - name: Check dist files exist
         run: |
           test -f dist/index.js || exit 1
+          test -f dist/index.cjs || exit 1
           test -f dist/index.d.ts || exit 1
           echo "✅ Build artifacts verified"
 
@@ -108,7 +109,7 @@ jobs:
         run: |
           echo "Testing prototype pollution prevention..."
           node -e "
-            import('./dist/object/set.js').then(({ set }) => {
+            import('./dist/index.js').then(({ set }) => {
               const obj = {};
               try {
                 set(obj, '__proto__.polluted', 'yes');
