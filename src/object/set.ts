@@ -1,5 +1,12 @@
+import { parsePath, hasDangerousKey } from '../_internal/path.js'
+import type { Paths } from '../_internal/types.js'
+
 /**
  * Sets the value at path of object. If a portion of path doesn't exist, it's created.
+ *
+ * Provides type-safe overloads:
+ * - When a typed object and valid path are provided, the path is validated at compile time.
+ * - Falls back to a loose signature for dynamic paths.
  *
  * @param obj - The object to modify
  * @param path - The path of the property to set (string or array)
@@ -23,20 +30,20 @@
  * lodash.set: ~11M ops/sec
  * Performance: 64% faster than Lodash
  */
+export function set<T extends Record<string, any>, P extends Paths<T> & string>(
+  obj: T,
+  path: P,
+  value: any
+): T
 export function set<T extends object>(
   obj: T,
   path: string | string[],
   value: any
-): T {
-  const keys = Array.isArray(path) ? path : path.split('.')
+): T
+export function set(obj: any, path: string | string[], value: any): any {
+  const keys = parsePath(path)
 
-  // Prevent prototype pollution
-  const dangerousKeys = ['__proto__', 'constructor', 'prototype']
-  for (const key of keys) {
-    if (dangerousKeys.includes(key)) {
-      return obj
-    }
-  }
+  if (hasDangerousKey(keys)) return obj
 
   let current: any = obj
 

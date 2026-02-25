@@ -31,4 +31,32 @@ describe('isEqual', () => {
     expect(isEqual(date1, date2)).toBe(true)
     expect(isEqual(date1, date3)).toBe(false)
   })
+
+  it('should handle RegExp', () => {
+    expect(isEqual(/test/gi, /test/gi)).toBe(true)
+    expect(isEqual(/test/g, /test/i)).toBe(false)
+    expect(isEqual(/abc/, /def/)).toBe(false)
+  })
+
+  it('should handle Map', () => {
+    const map1 = new Map([
+      ['a', 1],
+      ['b', 2]
+    ])
+    const map2 = new Map([
+      ['a', 1],
+      ['b', 2]
+    ])
+    const map3 = new Map([
+      ['a', 1],
+      ['b', 3]
+    ])
+    expect(isEqual(map1, map2)).toBe(true)
+    expect(isEqual(map1, map3)).toBe(false)
+  })
+
+  it('should handle Set', () => {
+    expect(isEqual(new Set([1, 2, 3]), new Set([1, 2, 3]))).toBe(true)
+    expect(isEqual(new Set([1, 2]), new Set([1, 2, 3]))).toBe(false)
+  })
 })
