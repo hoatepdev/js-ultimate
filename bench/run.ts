@@ -109,6 +109,35 @@ async function run() {
     report(bench)
   }
 
+  // --- throttle ---
+  {
+    const bench = new Bench({ warmupIterations: 100, time: 2000 })
+    let count = 0
+    const fn = () => count++
+    const throttled = ju.throttle(fn, 100)
+    bench.add('throttle(fn, 100)', () => throttled())
+    await bench.run()
+    report(bench)
+  }
+
+  // --- kebabCase ---
+  {
+    const bench = new Bench({ warmupIterations: 100, time: 2000 })
+    bench.add('kebabCase("fooBar")', () => ju.kebabCase('fooBar'))
+    bench.add('kebabCase("FOO_BAR")', () => ju.kebabCase('FOO_BAR'))
+    await bench.run()
+    report(bench)
+  }
+
+  // --- flattenDeep ---
+  {
+    const bench = new Bench({ warmupIterations: 100, time: 2000 })
+    const nested = [1, [2, [3, [4, [5]]]]]
+    bench.add('flattenDeep(nested)', () => ju.flattenDeep(nested))
+    await bench.run()
+    report(bench)
+  }
+
   // --- Summary ---
   console.log('\n' + '='.repeat(60))
   console.log('Summary')

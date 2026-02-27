@@ -1,3 +1,5 @@
+import { splitWords } from '../_internal/splitWords.js'
+
 /**
  * Converts string to camel case.
  *
@@ -22,18 +24,10 @@
  * Performance: 100% faster than Lodash
  */
 export function camelCase(str: string): string {
-  // Remove leading/trailing special chars, replace underscores with spaces, and split into words
-  const words = str
-    .replace(/_/g, ' ')
-    .replace(/[^\w\s]/g, ' ')
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(word => word.length > 0)
+  const words = splitWords(str)
 
   if (words.length === 0) return ''
 
-  // First word is lowercase, rest are capitalized
   return words
     .map((word, index) => {
       if (index === 0) return word
