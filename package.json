@@ -1,6 +1,6 @@
 {
   "name": "js-ultimate",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Lightweight, powerful utility functions to replace lodash with zero dependencies",
   "type": "module",
   "main": "./dist/index.cjs",
