@@ -6,7 +6,9 @@ export { first } from './array/first.js'
 export { flattenDeep } from './array/flattenDeep.js'
 export { intersection } from './array/intersection.js'
 export { last } from './array/last.js'
+export { range } from './array/range.js'
 export { uniq } from './array/uniq.js'
+export { uniqBy } from './array/uniqBy.js'
 
 // Collection
 export { filter } from './collection/filter.js'
@@ -21,14 +23,20 @@ export { cloneDeep } from './object/cloneDeep.js'
 export { get } from './object/get.js'
 export { mergeDeep } from './object/mergeDeep.js'
 export { omit } from './object/omit.js'
+export { omitBy } from './object/omitBy.js'
 export { pick } from './object/pick.js'
+export { pickBy } from './object/pickBy.js'
 export { set } from './object/set.js'
 export { setImmutable } from './object/setImmutable.js'
 
 // String
 export { camelCase } from './string/camelCase.js'
+export { capitalize } from './string/capitalize.js'
 export { kebabCase } from './string/kebabCase.js'
 export { snakeCase } from './string/snakeCase.js'
+export { startCase } from './string/startCase.js'
+export { truncate } from './string/truncate.js'
+export { upperFirst } from './string/upperFirst.js'
 
 // Function
 export { debounce } from './function/debounce.js'
