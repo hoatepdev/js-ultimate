@@ -1,5 +1,13 @@
 # js-ultimate
 
+[![CI](https://github.com/hoatepdev/js-ultimate/actions/workflows/ci.yml/badge.svg)](https://github.com/hoatepdev/js-ultimate/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/js-ultimate.svg)](https://www.npmjs.com/package/js-ultimate)
+[![npm downloads](https://img.shields.io/npm/dm/js-ultimate.svg)](https://www.npmjs.com/package/js-ultimate)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/js-ultimate)](https://bundlephobia.com/package/js-ultimate)
+[![zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](https://www.npmjs.com/package/js-ultimate)
+[![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
+[![license](https://img.shields.io/npm/l/js-ultimate.svg)](https://github.com/hoatepdev/js-ultimate/blob/main/LICENSE)
+
 > A lightweight, zero-dependency TypeScript utility library designed as a modern Lodash replacement.
 
 ## ✨ Features
@@ -432,19 +440,32 @@ isPlainObject([1, 2, 3])              // => false
 
 ## ⚡ Performance
 
-js-ultimate is optimized for performance. Here's how it compares to Lodash in key operations:
+js-ultimate is optimized for raw throughput. Real benchmark results:
 
-| Operation | js-ultimate | Lodash | Improvement |
-|-----------|-------------|--------|-------------|
-| chunk(1000, 10) | ~2.5M ops/sec | ~1.8M ops/sec | ~39% faster |
-| get(nested path) | ~8M ops/sec | ~4.5M ops/sec | ~78% faster |
-| set(nested path) | ~3.2M ops/sec | ~1.5M ops/sec | ~113% faster |
-| isEqual(nested) | ~1.2M ops/sec | ~0.8M ops/sec | ~50% faster |
-| cloneDeep(nested) | ~800K ops/sec | ~500K ops/sec | ~60% faster |
-| groupBy(1000) | ~400K ops/sec | ~350K ops/sec | ~14% faster |
-| uniq(array) | ~3M ops/sec | ~2.5M ops/sec | ~20% faster |
+| Operation | ops/sec | ± |
+|-----------|--------:|--:|
+| `isEmpty({})` | 23,563,596 | ±0.24% |
+| `isEmpty([1,2,3])` | 25,293,114 | ±0.27% |
+| `compact(mixed)` | 19,045,362 | ±1.15% |
+| `throttle(fn, 100)` | 14,256,840 | ±1.31% |
+| `get(obj, 'a.b.c.d')` | 12,639,369 | ±0.93% |
+| `flattenDeep(nested)` | 8,074,948 | ±0.77% |
+| `setImmutable(obj, 'a.b.c', 99)` | 7,838,450 | ±0.88% |
+| `set(obj, 'a.b.c', 1)` | 7,700,309 | ±0.71% |
+| `isEqual(nested)` | 6,802,542 | ±0.84% |
+| `mergeDeep(2 objects)` | 5,097,969 | ±0.79% |
+| `cloneDeep(nested)` | 2,800,180 | ±0.74% |
+| `kebabCase('fooBar')` | 2,284,691 | ±0.73% |
+| `chunk(1000, 10)` | 543,365 | ±2.30% |
+| `groupBy(1000, prop)` | 64,507 | ±4.69% |
 
-*Benchmarks run with tinybench on Node.js v20. Results may vary based on runtime and environment.*
+Run benchmarks yourself:
+
+```bash
+yarn bench
+```
+
+*Measured with [tinybench](https://github.com/tinylibs/tinybench). Results vary by hardware and runtime.*
 
 ## 🌲 Tree Shaking
 
