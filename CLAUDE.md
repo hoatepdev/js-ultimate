@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-js-ultimate is a zero-dependency TypeScript utility library designed as a lightweight Lodash replacement. It provides 15 utility functions organized into 6 categories: array, collection, object, string, function, and lang.
+js-ultimate is a zero-dependency TypeScript utility library designed as a lightweight Lodash replacement. It provides 49 utility functions organized into 6 categories: array, collection, object, string, function, and lang.
 
 ## Commands
 
@@ -27,14 +27,14 @@ yarn vitest run tests/array/chunk.test.ts
 
 All source code lives in `src/`, with one function per file, organized by category:
 
-- `src/array/` - chunk, first, last, uniq
-- `src/collection/` - map, filter, find, reduce
-- `src/object/` - get, set, pick, omit
-- `src/string/` - camelCase
-- `src/function/` - debounce
-- `src/lang/` - isEqual
+- `src/array/` - chunk, compact, difference, first, flatten, flattenDeep, intersection, last, range, sortBy, uniq, uniqBy, zip
+- `src/collection/` - every, filter, find, flatMap, groupBy, keyBy, map, reduce, some
+- `src/object/` - cloneDeep, defaults, get, has, mapValues, mergeDeep, omit, omitBy, pick, pickBy, set, setImmutable
+- `src/string/` - camelCase, capitalize, kebabCase, snakeCase, startCase, truncate, upperFirst
+- `src/function/` - debounce, memoize, once, throttle
+- `src/lang/` - clamp, isEmpty, isEqual, isPlainObject
 
-`src/index.ts` re-exports all 15 functions as the public API.
+`src/index.ts` re-exports all 49 functions as the public API.
 
 Tests mirror the source structure in `tests/` (e.g., `src/array/chunk.ts` → `tests/array/chunk.test.ts`). Vitest globals are enabled — no need to import `describe`, `it`, `expect`.
 
